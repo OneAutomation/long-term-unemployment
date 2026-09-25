@@ -1,0 +1,11 @@
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+.venv/
+
+# Raw downloads and intermediate files are rebuilt by the scripts; provenance JSON is kept
+data/raw/*
+!data/raw/*.json
+data/interim/
