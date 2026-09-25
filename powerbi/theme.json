@@ -1,0 +1,19 @@
+{
+  "name": "Long-Term Unemployment (accessible)",
+  "dataColors": ["#2166AC", "#9ECAE1", "#EF8A62", "#B2182B", "#1F1F1F", "#8C8C8C", "#67A9CF", "#FDDBC7"],
+  "background": "#FFFFFF",
+  "foreground": "#1F1F1F",
+  "tableAccent": "#2166AC",
+  "good": "#2166AC",
+  "neutral": "#8C8C8C",
+  "bad": "#B2182B",
+  "maximum": "#2166AC",
+  "center": "#D1E5F0",
+  "minimum": "#F7F7F7",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#1F1F1F" },
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 13, "color": "#1F1F1F" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#1F1F1F" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#5A5A5A" }
+  }
+}

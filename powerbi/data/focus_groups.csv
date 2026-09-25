@@ -1,0 +1,40 @@
+Dimension,Group,Long-Term People,People CI Low,People CI High,Long-Term Share,Share CI Low,Share CI High,People Quality,Share Quality,Part 1,Part 2,Shown,Rank Within Dimension
+Age x immigrant status,25 to 54 | Non-immigrant (incl. non-permanent residents),127821,114749,140892,24.49,22.35,26.64,Acceptable,Acceptable,25 to 54,Non-immigrant (incl. non-permanent residents),TRUE,1
+Age x immigrant status,15 to 24 | Non-immigrant (incl. non-permanent residents),61972,53313,70630,18.34,16.02,20.67,Acceptable,Acceptable,15 to 24,Non-immigrant (incl. non-permanent residents),TRUE,2
+Age x immigrant status,"25 to 54 | Immigrant, landed over 10 years",44091,35901,52281,30.56,25.86,35.27,Acceptable,Acceptable,25 to 54,"Immigrant, landed over 10 years",TRUE,3
+Age x immigrant status,"25 to 54 | Immigrant, landed 10 years or less",39207,31066,47347,24.69,20.26,29.12,Acceptable,Acceptable,25 to 54,"Immigrant, landed 10 years or less",TRUE,4
+Age x immigrant status,55 and over | Non-immigrant (incl. non-permanent residents),38812,32505,45119,26.78,22.88,30.67,Acceptable,Acceptable,55 and over,Non-immigrant (incl. non-permanent residents),TRUE,5
+Age x immigrant status,"55 and over | Immigrant, landed over 10 years",21644,15855,27434,32.27,25.26,39.27,Acceptable,Acceptable,55 and over,"Immigrant, landed over 10 years",TRUE,6
+Age x immigrant status,"15 to 24 | Immigrant, landed over 10 years",7157,3687,10627,20.74,11.86,29.61,Marginal,Marginal,15 to 24,"Immigrant, landed over 10 years",TRUE,7
+Age x immigrant status,"15 to 24 | Immigrant, landed 10 years or less",6828,3962,9694,15.81,9.51,22.11,Marginal,Marginal,15 to 24,"Immigrant, landed 10 years or less",TRUE,8
+Age x immigrant status,"55 and over | Immigrant, landed 10 years or less",4067,1509,6625,35.31,17.78,52.85,Marginal,Marginal,55 and over,"Immigrant, landed 10 years or less",TRUE,9
+Province x age,Ontario | 25 to 54,106633,93534,119732,29.85,26.88,32.83,Acceptable,Acceptable,Ontario,25 to 54,TRUE,1
+Province x age,Ontario | 15 to 24,37246,30406,44085,19.8,16.5,23.1,Acceptable,Acceptable,Ontario,15 to 24,TRUE,2
+Province x age,Ontario | 55 and over,29235,23061,35410,34.24,28.44,40.04,Acceptable,Acceptable,Ontario,55 and over,TRUE,3
+Province x age,British Columbia | 25 to 54,28806,22805,34807,25.97,21.26,30.68,Acceptable,Acceptable,British Columbia,25 to 54,TRUE,4
+Province x age,Quebec | 25 to 54,28666,21654,35678,18.06,14.04,22.08,Acceptable,Acceptable,Quebec,25 to 54,TRUE,5
+Province x age,Alberta | 25 to 54,25315,18641,31989,23.73,18.33,29.13,Acceptable,Acceptable,Alberta,25 to 54,TRUE,6
+Province x age,Alberta | 15 to 24,12708,8366,17050,22.02,15.31,28.74,Marginal,Marginal,Alberta,15 to 24,TRUE,7
+Province x age,Quebec | 55 and over,10957,6632,15282,23.88,15.89,31.86,Marginal,Marginal,Quebec,55 and over,TRUE,8
+Province x age,British Columbia | 15 to 24,8799,5060,12538,16.24,9.99,22.49,Marginal,Marginal,British Columbia,15 to 24,TRUE,9
+Province x age,British Columbia | 55 and over,8614,5509,11720,25.07,17.04,33.11,Marginal,Marginal,British Columbia,55 and over,TRUE,10
+Province x age,Quebec | 15 to 24,7496,4038,10953,11.99,6.77,17.21,Marginal,Marginal,Quebec,15 to 24,TRUE,11
+Province x age,Alberta | 55 and over,6978,3861,10095,28.65,17.6,39.69,Marginal,Marginal,Alberta,55 and over,TRUE,12
+Province x age,Manitoba | 25 to 54,5392,3708,7076,24.98,18.13,31.82,Marginal,Acceptable,Manitoba,25 to 54,TRUE,13
+Province x age,Saskatchewan | 25 to 54,5334,3910,6758,26.62,20.5,32.73,Acceptable,Acceptable,Saskatchewan,25 to 54,TRUE,14
+Province x age,Nova Scotia | 25 to 54,5191,3731,6651,26.26,19.88,32.65,Acceptable,Acceptable,Nova Scotia,25 to 54,TRUE,15
+Province x age,New Brunswick | 25 to 54,3246,2280,4212,20.62,14.97,26.27,Acceptable,Acceptable,New Brunswick,25 to 54,TRUE,16
+Province x age,Manitoba | 15 to 24,2927,1767,4087,20.63,13.45,27.81,Marginal,Marginal,Manitoba,15 to 24,TRUE,17
+Province x age,Saskatchewan | 15 to 24,2154,1209,3100,18.22,10.98,25.46,Marginal,Marginal,Saskatchewan,15 to 24,TRUE,18
+Province x age,Newfoundland and Labrador | 25 to 54,2027,1407,2647,18.5,13.35,23.65,Marginal,Acceptable,Newfoundland and Labrador,25 to 54,TRUE,19
+Province x age,Nova Scotia | 55 and over,1911,1072,2750,28.91,18.41,39.41,Marginal,Marginal,Nova Scotia,55 and over,TRUE,20
+Province x age,Manitoba | 55 and over,1783,905,2661,29.18,16.88,41.48,Marginal,Marginal,Manitoba,55 and over,TRUE,21
+Province x age,New Brunswick | 15 to 24,1675,972,2378,19.41,12.07,26.76,Marginal,Marginal,New Brunswick,15 to 24,TRUE,22
+Province x age,Saskatchewan | 55 and over,1655,913,2397,28.08,17.45,38.71,Marginal,Marginal,Saskatchewan,55 and over,TRUE,23
+Province x age,Newfoundland and Labrador | 55 and over,1587,1072,2102,24.3,17.61,30.99,Marginal,Acceptable,Newfoundland and Labrador,55 and over,TRUE,24
+Province x age,Newfoundland and Labrador | 15 to 24,1571,1016,2127,23.95,16.47,31.42,Marginal,Marginal,Newfoundland and Labrador,15 to 24,TRUE,25
+Province x age,New Brunswick | 55 and over,1479,899,2058,23.03,15.17,30.88,Marginal,Marginal,New Brunswick,55 and over,TRUE,26
+Province x age,Nova Scotia | 15 to 24,1097,450,1744,11.05,4.79,17.31,Marginal,Marginal,Nova Scotia,15 to 24,TRUE,27
+Province x age,Prince Edward Island | 25 to 54,508,240,776,15.24,7.7,22.78,Marginal,Marginal,Prince Edward Island,25 to 54,TRUE,28
+Province x age,Prince Edward Island | 55 and over,323,113,534,16.24,6.7,25.79,Marginal,Marginal,Prince Edward Island,55 and over,TRUE,29
+Province x age,Prince Edward Island | 15 to 24,285,81,489,15.09,4.95,25.23,Suppressed,Marginal,Prince Edward Island,15 to 24,FALSE,30

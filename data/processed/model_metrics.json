@@ -1,0 +1,82 @@
+{
+  "population": "unemployed job searchers (temporary layoffs and future starts excluded)",
+  "train": {
+    "months": "2022-01 to 2024-12",
+    "person_months": 123478,
+    "ltu_share": 0.187668
+  },
+  "test": {
+    "months": "2025-07 to 2026-08",
+    "person_months": 60127
+  },
+  "cv_auc": {
+    "logistic": 0.649129,
+    "forest": 0.698772
+  },
+  "cv_folds": [
+    {
+      "fold": 1,
+      "logistic": 0.628564,
+      "forest": 0.673891
+    },
+    {
+      "fold": 2,
+      "logistic": 0.650859,
+      "forest": 0.694513
+    },
+    {
+      "fold": 3,
+      "logistic": 0.653289,
+      "forest": 0.702327
+    },
+    {
+      "fold": 4,
+      "logistic": 0.657933,
+      "forest": 0.705581
+    },
+    {
+      "fold": 5,
+      "logistic": 0.655001,
+      "forest": 0.717549
+    }
+  ],
+  "chosen": "forest",
+  "test_metrics": {
+    "auc_chosen": 0.611016,
+    "auc_baseline": 0.574064,
+    "auc_logistic": 0.627715,
+    "auc_forest": 0.611016,
+    "brier_chosen": 0.182757,
+    "brier_logistic": 0.180616,
+    "brier_baseline": 0.185335,
+    "brier_constant": 0.184268,
+    "brier_constant_train": 0.187398,
+    "observed_share": 0.243618,
+    "predicted_share": 0.188192,
+    "capture20_chosen": 0.284278,
+    "capture20_baseline": 0.246799
+  },
+  "ci95": {
+    "auc_chosen": [0.604013, 0.617764],
+    "auc_baseline": [0.567827, 0.58063],
+    "gain": [0.030386, 0.043193],
+    "capture20_chosen": [0.276321, 0.29275],
+    "capture20_baseline": [0.238859, 0.254303]
+  },
+  "M1_auc_ge_0.65": false,
+  "M2_beats_baseline_by_0.03": true,
+  "decision": "M1 or M2 failed: the dashboard ranks groups by directly estimated long-term share and count, with no model risk tiers",
+  "top20_threshold": 0.259889,
+  "post_hoc": {
+    "panel_factor_14_months": 2.27303,
+    "gain_ci_panel_corrected": [0.021642, 0.052263],
+    "auc_ci_panel_corrected": {
+      "chosen": [0.594297, 0.627736],
+      "baseline": [0.558616, 0.589512],
+      "logistic": [0.611744, 0.643686]
+    },
+    "brier_ci_panel_corrected": [0.175894, 0.189619],
+    "brier_ci_chosen": [0.179909, 0.185686],
+    "overall_observed_to_predicted": 1.294519
+  }
+}

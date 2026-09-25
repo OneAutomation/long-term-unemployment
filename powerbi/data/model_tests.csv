@@ -1,0 +1,11 @@
+Test,Measure,Value,CI Low,CI High,Pass Mark,Result,Interval
+V1 validation,Months matching StatCan's published 27+ week count,56,,,All 56 within 1%,Passed,""
+Model test,"Random forest (chosen), test AUC",0.611,0.5943,0.6277,M1: at least 0.65,Failed,Panel-corrected
+Model test,Gain over the age-only rule,0.037,0.0304,0.0432,"M2: at least 0.03, interval above 0",Passed,Pre-registered bootstrap (uncorrected)
+Model test,"Age-only rule, test AUC",0.5741,0.5586,0.5895,Baseline,Baseline,Panel-corrected
+Model test,"Logistic regression, test AUC (not chosen)",0.6277,0.6117,0.6437,For context,Context,Panel-corrected
+Model test,"Gain over the age-only rule, panel-corrected interval (post hoc)",0.037,0.0216,0.0523,Context only,Still above 0,Panel-corrected
+Model test,"Brier score, random forest",0.1828,0.1759,0.1896,Lower is better,Context,Panel-corrected
+Model test,"Brier score, predicting the training-period average for everyone",0.1874,,,Reference,Context,""
+Diagnostic,Month-blocked CV AUC: forest minus logistic,0.0496,,,Post hoc,Forest ahead,""
+Diagnostic,Buffered block CV AUC: forest minus logistic,-0.0186,,,Post hoc,Forest wins 0 of 5 blocks,""

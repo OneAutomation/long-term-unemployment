@@ -1,2 +1,6 @@
 b31647afe79b79a8d7c6a4ad6e4d68948a2863a24bbdc6fbcbc03db72498612a  PREREGISTRATION.md
 written 2026-09-25 15:46:59 EDT
+
+To verify: the first public commit holds the original text, so
+  git show da74832:PREREGISTRATION.md | shasum -a 256
+reproduces the hash above. GitHub shows that commit pushed at 2026-09-25 19:47 UTC (3:47 PM EDT), before any model ran.

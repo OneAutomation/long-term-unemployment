@@ -1,0 +1,9 @@
+Dimension,Group,Observed Share,Predicted Share,Observed To Predicted,Captured In Top 20 Percent,Flagged,Relative To Overall,Flagged Relative
+Gender,Men+,0.2487,0.1953,1.273,0.3235,TRUE,0.983,FALSE
+Gender,Women+,0.2376,0.1797,1.322,0.2356,TRUE,1.021,FALSE
+Age,15 to 24,0.1759,0.1127,1.562,0.0361,TRUE,1.206,FALSE
+Age,25 to 54,0.2632,0.2053,1.282,0.2747,TRUE,0.991,FALSE
+Age,55 and over,0.3002,0.2693,1.115,0.5952,FALSE,0.861,FALSE
+Immigrant status,Non-immigrant (incl. non-permanent residents),0.2314,0.177,1.307,0.2499,TRUE,1.01,FALSE
+Immigrant status,"Immigrant, landed over 10 years",0.2897,0.2334,1.241,0.4533,FALSE,0.959,FALSE
+Immigrant status,"Immigrant, landed 10 years or less",0.2473,0.1876,1.318,0.2021,TRUE,1.018,FALSE

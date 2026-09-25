@@ -1,0 +1,122 @@
+// Measures for the Long-Term Unemployment report. Paste each with Modeling > New measure.
+// Table names assume the CSVs were loaded and renamed as in BUILD-GUIDE.md:
+// Estimates, Monthly, Focus, Validation, Tests, Fairness, Capture.
+// Every estimate in Estimates is already computed (with Statistics Canada's bootstrap);
+// these measures only pick the right row, so the numbers in the report equal the analysis exactly.
+
+
+// ---------- Page 1: The situation (respond to the Period slicer on Estimates[Period]) ----------
+
+Long-Term People =
+CALCULATE (
+    SUM ( Estimates[Estimate] ),
+    Estimates[Grouping] = "Canada",
+    Estimates[Measure] = "Long-term unemployed (people)"
+)
+
+Long-Term People CI Text =
+VAR lo = CALCULATE ( SUM ( Estimates[CI Low] ), Estimates[Grouping] = "Canada", Estimates[Measure] = "Long-term unemployed (people)" )
+VAR hi = CALCULATE ( SUM ( Estimates[CI High] ), Estimates[Grouping] = "Canada", Estimates[Measure] = "Long-term unemployed (people)" )
+RETURN "95% CI " & FORMAT ( lo, "#,0" ) & " to " & FORMAT ( hi, "#,0" )
+
+Long-Term Share =
+DIVIDE (
+    CALCULATE ( SUM ( Estimates[Estimate] ), Estimates[Grouping] = "Canada", Estimates[Measure] = "Long-term share of unemployment" ),
+    100
+)
+
+// Compare like with like: a January-to-August period against the same months of 2023, a full year against 2023.
+Long-Term People 2023 =
+VAR p = SELECTEDVALUE ( Estimates[Period], "2026 Jan-Aug" )
+VAR base = IF ( RIGHT ( p, 7 ) = "Jan-Aug", "2023 Jan-Aug", "2023" )
+RETURN
+    CALCULATE (
+        SUM ( Estimates[Estimate] ),
+        Estimates[Grouping] = "Canada",
+        Estimates[Measure] = "Long-term unemployed (people)",
+        Estimates[Period] = base
+    )
+
+Change Since 2023 =
+VAR base = [Long-Term People 2023]
+RETURN IF ( ISBLANK ( base ), BLANK (), DIVIDE ( [Long-Term People], base ) - 1 )   // BLANK - 1 would show -100%
+
+// The same months one year earlier (blank when that period isn't in the data).
+Previous Year Period =
+VAR p = SELECTEDVALUE ( Estimates[Period], "2026 Jan-Aug" )
+VAR y = VALUE ( LEFT ( p, 4 ) ) - 1
+RETURN IF ( RIGHT ( p, 7 ) = "Jan-Aug", FORMAT ( y, "0" ) & " Jan-Aug", FORMAT ( y, "0" ) )
+
+Long-Term People Previous Year =
+VAR prev = [Previous Year Period]          // a variable: filter arguments can't call a measure directly
+RETURN
+    CALCULATE (
+        SUM ( Estimates[Estimate] ),
+        Estimates[Grouping] = "Canada",
+        Estimates[Measure] = "Long-term unemployed (people)",
+        Estimates[Period] = prev
+    )
+
+Change On Previous Year =
+VAR prev = [Long-Term People Previous Year]
+RETURN IF ( ISBLANK ( prev ), BLANK (), DIVIDE ( [Long-Term People], prev ) - 1 )
+
+Unemployment Rate Previous Year =
+VAR prev = [Previous Year Period]
+RETURN
+    DIVIDE (
+        CALCULATE ( SUM ( Estimates[Estimate] ), Estimates[Grouping] = "Canada", Estimates[Measure] = "Unemployment rate",
+                    Estimates[Period] = prev ),
+        100
+    )
+
+Unemployment Rate =
+DIVIDE (
+    CALCULATE ( SUM ( Estimates[Estimate] ), Estimates[Grouping] = "Canada", Estimates[Measure] = "Unemployment rate" ),
+    100
+)
+
+
+// ---------- Pages 1 and 2: colour by Statistics Canada's quality rules ----------
+// Use as Format > Bars (or Markers) > Colour > fx > Field value.
+
+Quality Colour =
+SWITCH (
+    SELECTEDVALUE ( Estimates[Quality] ),
+    "Acceptable", "#2166AC",
+    "Marginal", "#EF8A62",
+    "#CFCFCF"
+)
+
+
+// ---------- Page 4: How far to trust this ----------
+
+V1 Result =
+LOOKUPVALUE ( Tests[Result], Tests[Test], "V1 validation" )
+
+M1 Result =
+LOOKUPVALUE ( Tests[Result], Tests[Measure], "Random forest (chosen), test AUC" )
+
+M2 Result =
+LOOKUPVALUE ( Tests[Result], Tests[Measure], "Gain over the age-only rule" )
+
+M1 Text =
+"Model AUC " & FORMAT ( LOOKUPVALUE ( Tests[Value], Tests[Measure], "Random forest (chosen), test AUC" ), "0.000" ) & ", bar 0.65"
+
+M2 Text =
+VAR g = LOOKUPVALUE ( Tests[Value], Tests[Measure], "Gain over the age-only rule" )
+VAR lo = LOOKUPVALUE ( Tests[CI Low], Tests[Measure], "Gain over the age-only rule" )
+VAR hi = LOOKUPVALUE ( Tests[CI High], Tests[Measure], "Gain over the age-only rule" )
+VAR plo = LOOKUPVALUE ( Tests[CI Low], Tests[Measure], "Gain over the age-only rule, panel-corrected interval (post hoc)" )
+VAR phi = LOOKUPVALUE ( Tests[CI High], Tests[Measure], "Gain over the age-only rule, panel-corrected interval (post hoc)" )
+RETURN "Beats age alone by " & FORMAT ( g, "0.000" ) & " (" & FORMAT ( lo, "0.000" ) & " to " & FORMAT ( hi, "0.000" )
+    & "; " & FORMAT ( plo, "0.000" ) & " to " & FORMAT ( phi, "0.000" ) & " panel-corrected)"
+
+// Colours for the three result cards: Format > Callout value > Colour > fx > Field value,
+// each card using its own measure.
+
+V1 Colour = IF ( [V1 Result] = "Passed", "#2166AC", "#B2182B" )
+
+M1 Colour = IF ( [M1 Result] = "Passed", "#2166AC", "#B2182B" )
+
+M2 Colour = IF ( [M2 Result] = "Passed", "#2166AC", "#B2182B" )
